@@ -28,6 +28,7 @@ const note = function () {
   adsr.gain.setValueAtTime(0.0, now)
   adsr.gain.linearRampToValueAtTime(0.25, now + 0.25);
   adsr.gain.linearRampToValueAtTime(0.0, now + 3.25);
+  osc.stop(0.0, now + 3.30)
 };
 
 // Function to generate a random pitch (in Hz) from a given set of MIDI notes
@@ -44,7 +45,7 @@ const randomPitch = function () {
   return newFreq;
 };
 
-//Step 5
+//Step 5 adding the button
 
 <!DOCTYPE html>
 <html lang="en">
