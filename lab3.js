@@ -3,19 +3,18 @@ const midiPitches = [60, 62, 63, 67, 69, 72];
 
 //Step 1
 const ctx = new AudioContext();
-
+const osc = new OscillatorNode()
 //Step 2: Master Gain
 const mastergain = new GainNode(ctx);
 mastergain.gain.value = 0.5;
 //Step 3 connect to destination
-osc.connect(mastergain);
 mastergain.connect(ctx.destination);
 //-------------------------------------------FUNCTION DEFINITIONS----------------------------------
 //Step 4
-const osc = new OscillatorNode(ctx);
+const osc =  OscillatorNode(ctx);
 const note = function () {
-  let osc = OscillatorNode(ctx);
-  let adsr = GainNode(ctx);
+  let osc = new OscillatorNode(ctx);
+  let adsr = new GainNode(ctx);
 
   adsr.gain.value = 0;
   osc.frequency.value = randomPitch();
@@ -28,7 +27,7 @@ const note = function () {
   adsr.gain.setValueAtTime(0.0, now)
   adsr.gain.linearRampToValueAtTime(0.25, now + 0.25);
   adsr.gain.linearRampToValueAtTime(0.0, now + 3.25);
-  osc.stop(0.0, now + 3.30)
+  
 };
 
 // Function to generate a random pitch (in Hz) from a given set of MIDI notes
