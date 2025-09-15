@@ -3,7 +3,7 @@ const midiPitches = [60, 62, 63, 67, 69, 72];
 
 //Step 1
 const ctx = new AudioContext();
-const osc = new OscillatorNode()
+
 //Step 2: Master Gain
 const mastergain = new GainNode(ctx);
 mastergain.gain.value = 0.5;
@@ -11,7 +11,7 @@ mastergain.gain.value = 0.5;
 mastergain.connect(ctx.destination);
 //-------------------------------------------FUNCTION DEFINITIONS----------------------------------
 //Step 4
-const osc =  OscillatorNode(ctx);
+
 const note = function () {
   let osc = new OscillatorNode(ctx);
   let adsr = new GainNode(ctx);
@@ -46,15 +46,4 @@ const randomPitch = function () {
 
 //Step 5 adding the button
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lab 3</title>
-    <script type="module" src="lab3.js"></script>
-</head>
-<body>
-    <button id="playButton">Play a New Note</button>
-
-</body>
-</html>
+document.querySelector("#playButton").addEventListener("click", note);
